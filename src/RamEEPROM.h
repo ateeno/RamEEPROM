@@ -50,4 +50,7 @@ protected:
 	uint8_t m_blockCount;
 };
 
+uint8_t eeprom_read(int);
+void eeprom_write(int, uint8_t);
+
 #endif /* RamEEPROM_H_ */
