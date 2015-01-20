@@ -1,2 +1,3 @@
-# RamEEPROM
-A RamDisk EEPROM driver
+RamEEPROM
+====
+> A [RamDisk](https://github.com/greiman/RamDisk) EEPROM driver
