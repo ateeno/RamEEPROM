@@ -5,7 +5,7 @@
  *      Author: taoyuan
  */
 
-#include <RamEEPROM.h>
+#include "RamEEPROM.h"
 
 #ifdef __arm__ // should provide EEPROM implementation in ARM
 #include "EEPROM.h"
@@ -21,11 +21,11 @@ void eeprom_write(int address, uint8_t value) {
 #else // use avr/eeprom
 #include "avr/eeprom.h"
 
-uint8_t eeprom_read(int address) {
+uint8_t eeprom_read(uint32_t address) {
 	return eeprom_read_byte((unsigned char *) address);
 }
 
-void eeprom_write(int address, uint8_t value) {
+void eeprom_write(uint32_t address, uint8_t value) {
 	eeprom_write_byte((unsigned char *) address, value);
 }
 

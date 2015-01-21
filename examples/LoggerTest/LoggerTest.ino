@@ -9,8 +9,8 @@
 const uint32_t N_SAMPLE = 100L;
 const uint8_t ANALOG_PIN_COUNT = 5;
 
-RamEEPROM ram;
-RamVolume vol;
+RamEEPROM _ram;
+RamVolume _vol;
 RamBaseFile file;
 uint16_t data[ANALOG_PIN_COUNT];
 
@@ -35,7 +35,7 @@ void setup() {
 			// totalBlocks: entire RAM
 			// dirBlocks: 4  (64 entries)
 			// clusterSizeBlocks: 1 (one 512 byte block per cluster)
-			if (vol.format(&ram))
+			if (_vol.format(&_ram))
 				break;
 			Serial.println(F("format fail"));
 			return;
@@ -43,11 +43,11 @@ void setup() {
 			Serial.println(F("Invalid entry"));
 		}
 	}
-	if (!vol.init(&ram)) {
+	if (!_vol.init(&_ram)) {
 		Serial.println(F("init fail"));
 		return;
 	}
-	vol.printInfo(&Serial);
+	_vol.printInfo(&Serial);
 
 	if (!file.open("TEST.BIN", O_CREAT | O_RDWR)) {
 		Serial.println(F("open fail"));

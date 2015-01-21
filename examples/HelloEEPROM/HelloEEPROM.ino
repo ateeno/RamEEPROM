@@ -43,7 +43,7 @@ void setup() {
 	file.rewind();
 	int lineNumber = 0;
 
-	Serial.println(">>>");
+	Serial.println(F(">>>"));
 	// Read file line at a time.
 	while (file.fgets(buf, sizeof(buf)) > 0) {
 		Serial.print(++lineNumber);
@@ -51,11 +51,11 @@ void setup() {
 		Serial.print(buf);
 	}
 	file.close();
-	Serial.println("<<<");
+	Serial.println(F("<<<"));
 	Serial.println();
-	Serial.println("-------------------------------------------");
+	Serial.println(F("-------------------------------------------"));
 	vol.ls(&Serial, LS_DATE | LS_R | LS_SIZE);
-	Serial.println("-------------------------------------------");
+	Serial.println(F("-------------------------------------------"));
 	Serial.println();
 	Serial.println(F("Done!"));
 }
